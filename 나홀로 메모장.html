@@ -46,14 +46,16 @@
       }
 
 
+
       #posting_box {
-  display: none;
-}
+        display: none;
+      }
     </style>
 
     <script>
 
-      function openclose() {
+
+function openclose() {
   
     if ( $('#posting_box').css('display') == 'block' ) {
       $('#posting_box').hide();
@@ -63,6 +65,70 @@
         $('#btn_posting_box').text('포스팅 박스 닫기');
     }
   }
+
+function posting() {
+  
+    let url = $('#posting_url').val();
+    let comment = $('#posting_comment').val();
+    let author = '원경';
+
+  
+    $.ajax({
+      type: "POST", 
+      url: "http://spartacodingclub.shop/post", 
+      data: { url_give: url, comment_give: comment, author_give:author }, 
+      success: function(response){
+        if (response['result'] == 'success') {
+          alert('포스팅 성공!')
+        } else {
+          alert('서버 오류!')
+        }
+      }
+    })
+  }
+
+
+   $(document).ready(function() { 
+     listing();
+    });
+
+   function listing() {
+  $.ajax({
+    type: "GET",
+    url: "http://spartacodingclub.shop/post?author_give=원경",
+    data: {},
+    success: function(response){
+       if (response['result'] == 'success') {
+         let articles = response['articles'];
+         for (let i = 0; i < articles.length; i++) {
+           make_card(articles[i]['comment'],articles[i]['desc'],articles[i]['image'],articles[i]['title'],articles[i]['url'])
+         }
+       } else {
+         alert('기사를 받아오지 못했습니다');
+       }
+    }
+  })
+}
+
+
+function make_card(comment, desc, image, title, url) {
+  let temp_html = '<div class="card" style="height:400px;">\
+    <img class="card-img-top" src="'+image+'" alt="Card image cap">\
+    <div class="card-body">\
+      <a href="'+url+'" class="card-title">'+title+'</a>\
+      <p class="card-text">'+desc+'</p>\
+      <p class="card-text comment">'+comment+'</p>\
+    </div>\
+  </div>';
+  $('#card-box').append(temp_html);
+}
+     
+
+
+
+      
+
+
     </script>
 
   </head>
@@ -86,19 +152,19 @@
         <form class="formbox">
             <div class="form-group">
     <label for="exampleInputEmail1">아티클 URL</label>
-    <input type="email" class="form-control" id="posting_url" aria-describedby="emailHelp" >
+    <input class="form-control" id="posting_url" >
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">간단 코멘트</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" >
+    <input class="form-control" id="posting_comment" >
   </div>
-  <button type="submit" class="btn btn-primary" onclick="hey()">기사저장</button>
+  <button type="submit" class="btn btn-primary" onclick="posting()">기사저장</button>
         </form>
 
       </div>
      
 
-      <div class="card-columns">
+      <div class="card-columns" id="card-box">
         <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
       <div class="card-body">
