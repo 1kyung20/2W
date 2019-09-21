@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <!-- Webpage Title -->
+    <title>나홀로 링크 메모장</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <!-- JS -->   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <style>
+      .wrap {
+        width:900px;
+        margin: auto;
+      }
+      .cardcomments{
+        color : blue;
+        font-weight : bold;
+      }
+
+      .formbox{
+        margin: 2rem auto;
+        border: 2px solid orange;
+        border-radius: 0.3rem;
+        width: 30rem;
+        box-sizing: border-box;
+        display: block;
+
+      }
+
+      .form-group{
+        padding : 3rem;
+      }
+
+      .btn btn-primary{
+        margin: auto;
+      }
+
+
+      #posting_box {
+  display: none;
+}
+    </style>
+
+    <script>
+
+      function openclose() {
+  
+    if ( $('#posting_box').css('display') == 'block' ) {
+      $('#posting_box').hide();
+           $('#btn_posting_box').text('포스팅 박스 열기');
+    } else {
+      $('#posting_box').show();
+        $('#btn_posting_box').text('포스팅 박스 닫기');
+    }
+  }
+    </script>
+
+  </head>
+
+  
+    <body>
+      <div class="wrap">
+    <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">나홀로 메모장!</h1>
+          <p>중요한 링크를 저장해두고, 나중에 볼수 있는 공간입니다.</p>
+          <p><a class="btn btn-primary btn-lg" id="btn_posting_box" href="#!" role="button" onclick="openclose()">포스팅 박스 열기 &raquo;</a></p>
+        </div>
+      </div>
+
+      <div id='posting_box'>
+        <form class="formbox">
+            <div class="form-group">
+    <label for="exampleInputEmail1">아티클 URL</label>
+    <input type="email" class="form-control" id="posting_url" aria-describedby="emailHelp" >
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">간단 코멘트</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" >
+  </div>
+  <button type="submit" class="btn btn-primary" onclick="hey()">기사저장</button>
+        </form>
+
+      </div>
+     
+
+      <div class="card-columns">
+        <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <p class="cardcomments">여기에 코멘트가 들어갑니다</p>
+          </div>
+
+     <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+            <p class="cardcomments">여기에 코멘트가 들어갑니다</p>
+          </div>
+
+     <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+            <p class="cardcomments">여기에 코멘트가 들어갑니다</p>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+            <p class="cardcomments">여기에 코멘트가 들어갑니다</p>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+            <p class="cardcomments">여기에 코멘트가 들어갑니다</p>
+    </div>
+
+       <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+            <p class="cardcomments">여기에 코멘트가 들어갑니다</p>
+    </div>
+
+   
+       
+
+  </div>
+  
+
+  </body>
+</html>
